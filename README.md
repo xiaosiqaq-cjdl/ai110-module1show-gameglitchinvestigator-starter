@@ -25,28 +25,32 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
-
-## 📸 Demo Walkthrough
+- [x] Describe the game's purpose.: - [x] Explain what fixes you appli：Led.
+：: The hints pointed in the wrong direction, New Game did not fully reset the game, and the player had fewer attempts than expected. I also found problems with scoring and the displayed guess range.
+## 📸 Demo Walkthrough：: I corrected the hints, reset the game state when starting a new game, and initialized attempts to zero. I fixed the scoring and updated the display after processing each guess. I moved four helper functions into logic_utils.py and added a regression test. All four tests passed.
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. Select Normal difficulty and click New Game. The range is 1–100, with 8 attempts available and a score of 0
+2. In this example, the secret number is 51. The secret is randomly generated, so it may differ in another game 
+3. Enter 81 and click Submit Guess. The game shows "Too High" and "Go LOWER!". The score becomes -5, with 7 attempts left
+4. Enter 51 and submit again. The game shows "Correct!" and ends with a win. The final score is 75, with 6 attempts left
+5. Click New Game. The score resets to 0, attempts return to 8, history is cleared, and a new secret number is generated
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
 ## 🧪 Test Results
 
 ```
-# Paste your pytest output here, e.g.:
-# pytest tests/
-# ========================= X passed in 0.XXs =========================
+PS E:\Python Code\ai110-module1show-gameglitchinvestigator-starter> .\.venv\Scripts\python.exe -m pytest
+=================================================================================================== test session starts ===================================================================================================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0
+rootdir: E:\Python Code\ai110-module1show-gameglitchinvestigator-starter
+collected 4 items                                                                                                                                                                                                          
+
+tests\test_game_logic.py ....                                                                                                                                                                                        [100%]
+
+==================================================================================================== 4 passed in 0.02s ====================================================================================================
 ```
 
 ## 🚀 Stretch Features
